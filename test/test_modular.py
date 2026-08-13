@@ -8,3 +8,5 @@ def test_modular_power_manual():
     assert modular_power_manual(2, 5, 7) == 4
     assert modular_power_manual(3, 4, 5) == 1
     assert modular_power_manual(2, 100, 7) == 2
+    assert modular_power_manual(10, 0, 7) == 1
+    assert modular_power_manual(7, 3, 5) == 3
