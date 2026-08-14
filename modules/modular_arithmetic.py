@@ -1,3 +1,12 @@
+from modules.extended_euclidean import extended_gcd
+
+
+def modular_inverse(a, modulus):
+    gcd, x, _ = extended_gcd(a, modulus)
+    if gcd != 1:
+        raise ValueError(f"No modular inverse exists for {a} modulo {modulus}")
+    return x % modulus
+
 def modular_power(base, exponent, modulus):
     return pow(base, exponent, modulus)
 
