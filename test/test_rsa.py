@@ -1,4 +1,5 @@
 from modules.rsa import generate_keys, encrypt, decrypt
+import pytest
 
 def test_generate_keys():
     public_key, private_key = generate_keys(5, 11, 3)
@@ -14,4 +15,18 @@ def test_encrypt_and_decrypt():
 
     assert decrypted_message == message    
 
-    
+def test_rejects_non_prime_p():
+    with pytest.raises(ValueError):
+        generate_keys(4, 11, 3)
+
+def test_rejects_non_prime_q():
+    with pytest.raises(ValueError):
+        generate_keys(5, 9, 3)
+
+def test_rejects_equal_primes():
+    with pytest.raises(ValueError):
+        generate_keys(5, 5, 3)                
+
+def test_rejects_invalid_e():
+    with pytest.raises(ValueError):
+        generate_keys(5, 11, 5)    

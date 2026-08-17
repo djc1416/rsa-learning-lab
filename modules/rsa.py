@@ -1,8 +1,13 @@
-from modules.number_theory import euler_totient
+from modules.number_theory import euler_totient, is_prime
 from modules.euclidean_algorithm import gcd
 from modules.modular_arithmetic import modular_inverse
 
 def generate_keys(p, q, e):
+    if not is_prime(p) or not is_prime(q):
+        raise ValueError("p and q must be prime")
+    if p == q:
+        raise ValueError("p and q must be different")
+    
     n = p * q
     phi = euler_totient(n)
 
