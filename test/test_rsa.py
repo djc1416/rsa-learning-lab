@@ -30,3 +30,18 @@ def test_rejects_equal_primes():
 def test_rejects_invalid_e():
     with pytest.raises(ValueError):
         generate_keys(5, 11, 5)    
+
+def test_generate_large_keys():
+    public_key, private_key = generate_keys(61, 53, 17)
+
+    assert public_key == (3233, 17)
+    assert private_key == (3233, 2753)       
+
+def test_larger_rsa_encyption():
+    public_key, private_key = generate_keys(61, 53, 17)
+    message = 72
+    
+    ciphertext = encrypt(message, public_key)
+    decrypted_message = decrypt(ciphertext, private_key)
+
+    assert decrypted_message == message   
