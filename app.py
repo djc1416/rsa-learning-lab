@@ -33,7 +33,32 @@ if st.button("Generate Keys"):
         st.session_state.private_key = private_key
         st.session_state.ciphertext = None
 
+        n = p * q
+        phi = (p - 1) * (q - 1)
+        d = private_key[1]
+
         st.success("Keys generated successfully!")
+        st.subheader("RSA Mathematics")
+
+        st.write("1. Calculate n:")
+        st.latex(rf"n = p \times q = {p} \times {q} = {n}")
+
+        st.write("2. Calculate φ(n):")
+        st.latex(
+            rf"\phi(n) = (p - 1) (q -1) = "
+            rf"({p} - 1) ({q} - 1) = {phi}"
+        )
+
+        st.write("3. Public exponent:")
+        st.latex(rf"e = {e}")
+
+        st.write("4. Calculate the private exponent d:")
+        st.latex(
+            rf"d = e^{{-1}} \mod \phi(n) = "
+            rf"{e}^{{-1}} \mod {phi} = {d}"
+        )
+        st.write("Public Key:", public_key)
+        st.write("Private Key:", private_key)
 
     except ValueError as error:
         st.error(str(error))
