@@ -8,3 +8,19 @@ def encrypt_text(text, public_key):
 def decrypt_text(ciphertext, private_key):
     numbers = [decrypt(value, private_key) for value in ciphertext]
     return numbers_to_text(numbers)
+
+def encryption_steps(text, public_key):
+    n, e = public_key
+    numbers = text_to_numbers(text)
+
+    steps = []
+    for char, number in zip(text, numbers):
+        ciphertext = encrypt(number, public_key)
+
+        steps.append({
+            "char": char,   
+            "number": number,
+            "formula": f"{number}^{e} mod {n}",
+            "ciphertext": ciphertext,
+        })
+    return steps    

@@ -1,7 +1,11 @@
 import streamlit as st
 
 from modules.rsa import generate_keys
-from modules.rsa_message import decrypt_text, encrypt_text
+from modules.rsa_message import (
+    decrypt_text,
+    encrypt_text,
+    encryption_steps,
+)
 
 st.title("RSA Learning Lab")
 
@@ -83,6 +87,19 @@ if st.session_state.public_key is not None:
 
             st.success("Message encrypted successfully!")
             st.write("Ciphertext:", ciphertext)
+
+            st.subheader("Encryption Steps")
+
+            steps = encryption_steps(
+                message,
+                st.session_state.public_key
+            )
+
+            for step in steps:
+                st.write(f"**{step['char']} → {step['number']}**")
+                st.latex(
+                    rf"{step['number']} ^{{e}} \mod n = {step['ciphertext']}"
+                )
 
         except ValueError as error:
             st.error(str(error))
