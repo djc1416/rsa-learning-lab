@@ -5,6 +5,7 @@ from modules.rsa_message import (
     decrypt_text,
     encrypt_text,
     encryption_steps,
+    decryption_steps,
 )
 
 st.title("RSA Learning Lab")
@@ -115,3 +116,18 @@ if st.session_state.public_key is not None:
 
             st.success("Message decrypted successfully!")
             st.write("Recovered message:", decrypted)    
+
+            st.subheader("Decryption Steps")
+            steps = decryption_steps(
+                st.session_state.ciphertext,
+                st.session_state.private_key
+            )
+
+            n, d = st.session_state.private_key
+
+            for step in steps:
+                st.write(f"**{step['ciphertext']} → {step['number']}**")
+                st.latex(
+                    rf"{step['ciphertext']} ^{{d}} \mod n = "
+                    rf"{step['number']}"
+                )

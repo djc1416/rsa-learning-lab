@@ -23,4 +23,18 @@ def encryption_steps(text, public_key):
             "formula": f"{number}^{e} mod {n}",
             "ciphertext": ciphertext,
         })
-    return steps    
+    return steps  
+
+def decryption_steps(ciphertext, private_key):
+    n, d = private_key
+
+    steps = []
+    for value in ciphertext:
+        decrypted = decrypt(value, private_key)
+
+        steps.append({
+            "ciphertext": value,
+            "formula": f"{value}^{d} mod {n}",
+            "number": decrypted,
+        })
+    return steps     
