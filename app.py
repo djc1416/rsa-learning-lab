@@ -1,5 +1,6 @@
 import streamlit as st
 
+from modules.number_theory import is_prime
 from modules.rsa import generate_keys
 from modules.rsa_message import (
     decrypt_text,
@@ -131,3 +132,26 @@ if st.session_state.public_key is not None:
                     rf"{step['ciphertext']} ^{{d}} \mod n = "
                     rf"{step['number']}"
                 )
+
+            st.header("Mathematical Foundations")
+
+            st.subheader("Prime Numbers")
+
+            st.write(
+                "RSA relies on prime numbers. A prime number is an integer greater "
+                "than 1 that has exactly two positive divisors: 1 and itself. " 
+            )   
+
+            prime_input = st.number_input(
+                "Enter a number to test",
+                min_value = 1,
+                value = 17,  
+                step = 1,
+            )
+
+            if st.button("Test Primality"):
+                if is_prime(prime_input):
+                    st.success(f"{prime_input} is a prime number.")
+                else:
+                    st.warning(f"{prime_input} is not a prime number.")
+                
