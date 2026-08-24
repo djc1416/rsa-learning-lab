@@ -133,25 +133,38 @@ if st.session_state.public_key is not None:
                     rf"{step['number']}"
                 )
 
-            st.header("Mathematical Foundations")
+st.header("Mathematical Foundations")
 
-            st.subheader("Prime Numbers")
+st.subheader("Prime Numbers")
 
-            st.write(
-                "RSA relies on prime numbers. A prime number is an integer greater "
-                "than 1 that has exactly two positive divisors: 1 and itself. " 
-            )   
+st.write(
+        "RSA relies on prime numbers. A prime number is an integer greater "
+        "than 1 that has exactly two positive divisors: 1 and itself. " 
+          )   
 
-            prime_input = st.number_input(
-                "Enter a number to test",
-                min_value = 1,
-                value = 17,  
-                step = 1,
-            )
+prime_input = st.number_input(
+        "Enter a number to test",
+        min_value=1,
+        value=17,
+        step=1,
+)
 
-            if st.button("Test Primality"):
-                if is_prime(prime_input):
-                    st.success(f"{prime_input} is a prime number.")
-                else:
-                    st.warning(f"{prime_input} is not a prime number.")
-                
+if "prime_result" not in st.session_state:
+    st.session_state.prime_result = None
+
+if "prime_number" not in st.session_state:
+    st.session_state.prime_number = None
+
+if st.button("Check Prime"):
+    st.session_state.prime_number = prime_input
+    st.session_state.prime_result = is_prime(prime_input)
+
+if st.session_state.prime_result is not None:
+    if st.session_state.prime_result:
+        st.success(
+            f"{st.session_state.prime_number} is prime."
+        )
+    else:
+        st.warning(
+            f"{st.session_state.prime_number} is not prime."
+        )
