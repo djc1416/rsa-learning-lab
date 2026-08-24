@@ -1,6 +1,7 @@
 import streamlit as st
 
 from modules.number_theory import is_prime
+from modules.modular_arithmetic import modular_power, modular_power_manual
 from modules.rsa import generate_keys
 from modules.rsa_message import (
     decrypt_text,
@@ -168,3 +169,41 @@ if st.session_state.prime_result is not None:
         st.warning(
             f"{st.session_state.prime_number} is not prime."
         )
+
+
+st.subheader("Modular Arithmetic")
+
+st.write(
+    "Modular arithmetic works with remainders. "
+    "RSA uses modular exponentiation during encryption and decryption. "
+)
+
+base = st.number_input(
+    "Base",
+    min_value=0,
+    value=72,
+    step=1,
+)
+
+exponent = st.number_input(
+    "Exponent",
+    min_value=0,
+    value=17,
+    step=1,
+)
+
+modulus = st.number_input(
+    "Modulus",  
+    min_value=1,
+    value=3233,
+    step=1,
+)
+
+if st.button("Calculate Modular Power"):
+    result = modular_power(base, exponent, modulus)
+
+    st.success("Calculation completed")
+
+    st.latex(
+        rf"{base}^{{exponent}} \mod {modulus} = {result}"        
+    )
