@@ -2,7 +2,7 @@ import streamlit as st
 
 from modules.euclidean_algorithm import gcd
 from modules.number_theory import is_prime
-from modules.modular_arithmetic import modular_power, modular_power_manual
+from modules.modular_arithmetic import modular_power, modular_power_manual, modular_inverse 
 from modules.rsa import generate_keys
 from modules.rsa_message import (
     decrypt_text,
@@ -238,3 +238,44 @@ if st.button("Calculate GCD"):
     st.latex(
         rf"\gcd({a}, {b}) = {result}"
     )
+
+
+st.subheader("Modular Inverse")
+
+st.write(
+    "The modular inverse of a number is a value that produces " 
+    "a remainder of 1 when multiplied by the original number. "
+)
+
+a = st.number_input(
+    "Number a",
+    min_value=1,
+    value=17,
+    step=1,
+    key="inverse_a",
+)
+
+m = st.number_input(
+    "Modulus m",
+    min_value=2,
+    value=3120,
+    step=1,
+    key="inverse_m",
+)
+
+if st.button("Calculate Modular Inverse"):
+    try:
+        result = modular_inverse(a, m)
+
+        st.success("Modular inverse calculated successfully")
+
+        st.latex(
+            rf"{a}^{{-1}} \mod {m} = {result}"
+        )
+
+        st.latex(
+            rf"{a} \times {result} \equiv 1 \pmod{{m}}"
+        )
+
+    except ValueError as error:
+        st.error(str(error))    
