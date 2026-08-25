@@ -1,5 +1,6 @@
 import streamlit as st
 
+from modules.euclidean_algorithm import gcd
 from modules.number_theory import is_prime
 from modules.modular_arithmetic import modular_power, modular_power_manual
 from modules.rsa import generate_keys
@@ -206,4 +207,34 @@ if st.button("Calculate Modular Power"):
 
     st.latex(
         rf"{base}^{{exponent}} \mod {modulus} = {result}"        
+    )
+
+st.subheader("GCD / Euclidean Algorithm")
+
+st.write(
+    "The Euclidean Algorithm calculates the greatest common divisor "
+    "(GCD) of two integers."
+)
+
+a = st.number_input(
+    "First number",
+    min_value=0,
+    value=48,
+    step=1,
+)
+
+b = st.number_input(
+    "Second number",
+    min_value=0,
+    value=12,
+    step=1,
+)
+
+if st.button("Calculate GCD"):
+    result = gcd(a, b)
+
+    st.success("GCD calculated successfully")
+
+    st.latex(
+        rf"\gcd({a}, {b}) = {result}"
     )
