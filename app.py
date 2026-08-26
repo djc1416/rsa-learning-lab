@@ -377,7 +377,7 @@ if st.button("Show RSA Mathematical connection"):
 st.subheader("Why RSA Works")
 
 st.write(
-    "RSA combines number theory and mmodular arithmetic to create "
+    "RSA combines number theory and modular arithmetic to create "
     "a pair of mathematically related keys. "
 )
 
@@ -405,7 +405,7 @@ st.latex(
 st.markdown("### 3. Choose the public exponent")
 
 st.write(
-    "The public exponent e must be relatively prime to   φ(n)."
+    "The public exponent e must be relatively prime to  φ(n)."
 )
 
 st.latex(
@@ -414,7 +414,7 @@ st.latex(
 
 st.markdown("### 4. Calculate the private exponent")
 st.write(
-    "The private exponent d is the modulart inverse of e modulo φ(n)."
+    "The private exponent d is the modular inverse of e modulo φ(n)."
 )
 
 st.latex(
@@ -431,10 +431,10 @@ st.latex(
     r"\text{Public Key} = (n, e)"
 )
 st.latex(
-    r"\texe{Private Key} = (n,d)"
+    r"\text{Private Key} = (n,d)"
 )
 
 st.success(
     "RSA connects prime numbers, GCD, Euler's totient function, "
-    "and modular inverses into one cryptographci system."
+    "and modular inverses into one cryptographic system."
 )
