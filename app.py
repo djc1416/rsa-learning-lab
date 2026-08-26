@@ -1,7 +1,7 @@
 import streamlit as st
 
 from modules.euclidean_algorithm import gcd
-from modules.number_theory import is_prime
+from modules.number_theory import is_prime, euler_totient
 from modules.modular_arithmetic import modular_power, modular_power_manual, modular_inverse 
 from modules.rsa import generate_keys
 from modules.rsa_message import (
@@ -278,4 +278,28 @@ if st.button("Calculate Modular Inverse"):
         )
 
     except ValueError as error:
-        st.error(str(error))    
+        st.error(str(error))   
+
+st.subheader("Euler's Totient Function")
+
+st.write(
+    "Euler's Totient Function counts the positive integers up to n "
+    "that are relatively prime to n."
+)
+
+n_input = st.number_input(
+    "Enter n",
+    min_value=1,
+    value=3233,
+    step=1,
+    key="totient_n",
+)
+
+if st.button("Calculate Euler's Totient"):
+    result= euler_totient(n_input)
+
+    st.success("Euler's Totient calculated successfully")
+
+    st.latex(
+        rf"\phi({n_input}) = {result}"
+    )
