@@ -373,3 +373,68 @@ if st.button("Show RSA Mathematical connection"):
         )
     except ValueError as error:
         st.error(str(error))      
+
+st.subheader("Why RSA Works")
+
+st.write(
+    "RSA combines number theory and mmodular arithmetic to create "
+    "a pair of mathematically related keys. "
+)
+
+st.markdown("### 1. Chose two prime numbers")
+
+st.write(
+    "RSA starts with two prime numbers, p and q. "
+    "These numbers are used to construct the modulus n."
+)
+
+st.latex(
+    r"n = p \times q"
+)
+
+st.markdown("### 2. Calculate Euler's Totient")
+
+st.write(
+    "Euler's totient function determines how many positive integers "
+    "less than n are relatively prime to n."
+)
+
+st.latex(
+    r"\phi(n) = (p-1)(q-1)"
+)
+st.markdown("### 3. Choose the public exponent")
+
+st.write(
+    "The public exponent e must be relatively prime to   φ(n)."
+)
+
+st.latex(
+    r"\gcd(e, \phi(n)) = 1"
+)
+
+st.markdown("### 4. Calculate the private exponent")
+st.write(
+    "The private exponent d is the modulart inverse of e modulo φ(n)."
+)
+
+st.latex(
+    r"d = e^{-1} \mod \phi(n)"
+)
+
+st.markdown("### 5. Generate the keys")
+
+st.write(
+    "The public key contains n and e, while the private key "
+    "contains n and d."
+)
+st.latex(
+    r"\text{Public Key} = (n, e)"
+)
+st.latex(
+    r"\texe{Private Key} = (n,d)"
+)
+
+st.success(
+    "RSA connects prime numbers, GCD, Euler's totient function, "
+    "and modular inverses into one cryptographci system."
+)
