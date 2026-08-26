@@ -303,3 +303,73 @@ if st.button("Calculate Euler's Totient"):
     st.latex(
         rf"\phi({n_input}) = {result}"
     )
+
+st.subheader("RSA Connection")
+
+st.write(
+    "RSA combines prime numbers, Euler's Totient function, "
+    "the GCD, and the modular inverse to generate its keys."
+)
+
+rsa_p = st.number_input(
+    "Prime p",
+    min_value=2,
+    value=61,
+    step=1,
+    key="rsa_connection_p",
+)
+
+rsa_q = st.number_input(
+    "Prime q",
+    min_value=2,
+    value=53,
+    step=1,
+    key="rsa_connection_q",
+)
+
+rsa_e = st.number_input(
+    "Public exponent e",
+    min_value=2,
+    value=17,
+    step=1,
+    key="rsa_connection_e",
+)
+
+if st.button("Show RSA Mathematical connection"):
+    try:
+        n = rsa_p * rsa_q
+        phi = euler_totient(n)
+        d = modular_inverse(rsa_e, phi)
+        gcd_result = gcd(rsa_e, phi)
+
+        st.success("RSA mathematical connection calculated")
+
+        st.write("1. Calculate n:")
+        st.latex(
+            rf"n = p \times q = {rsa_p} \times {rsa_q} = {n}"
+        )
+
+        st.write("2. Calculate Euler's totient:")
+        st.latex(
+            rf"\phi(n) = \phi({n}) = {phi}"
+        )
+
+        st.write("3. Verify the public exponent:")
+        st.latex(
+            rf"\gcd({rsa_e}, {phi}) = {gcd_result}"
+        )
+
+        st.write("4. Calculate the private exponent:")
+        st.latex(
+            rf"d = {rsa_e}^{{-1}} \mod {phi} = {d}"
+        )
+
+        st.write("5. Keys:")
+        st.latex(
+            rf"\text{{Public Key}} = ({n}, {rsa_e})"
+        )
+        st.latex(
+            rf"\text{{Private Key}} = ({n}, {d})"
+        )
+    except ValueError as error:
+        st.error(str(error))      
