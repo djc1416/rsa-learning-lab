@@ -40,20 +40,21 @@ Examples of prime numbers:
 
 RSA uses two prime numbers, usually represented as `p` and `q`, to construct the modulus:
 
-\[
+$$
 n = p \times q    
-\]
+$$
 
 In this project, an exmaple key generation uses:
 
-\[
+$$
 p = 61, \quad q = 53
-\]
+$$
 
 Therefore:
-\[
+
+$$
 n = 61 \times 53 = 3233    
-\]
+$$
 
 The implementation includes a primality test to determine whether a number
 is prime.
