@@ -59,6 +59,8 @@ $$
 The implementation includes a primality test to determine whether a number
 is prime.
 
+
+
 ### Modular Arithmetic
 
 Modular arithmetic is a system of arithmetic based on the remainder
@@ -90,6 +92,29 @@ This project implements modular exponentiation to demostrate how
 these calculations are performed during RSA encryption.
 
 
+### Congruences
+
+A congruence describes when two integers have the same remainder
+when divided by the same positive integer.
+
+The notation is:
+
+$$
+a \equiv b \pmod{m}
+$$
+
+This means that `a` and `b` are congruent modulo `m`.
+
+For example:
+
+$$
+17 \equiv 5 \pmod{6}
+$$
+
+because both numbers leave a remainder of 5 when divided by 6.
+
+Congruences are an important part of modular arithmetic and are used
+to describe the mathematical relationships involved in RSA.
 
 
 ## Project Status
