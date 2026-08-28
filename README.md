@@ -59,6 +59,37 @@ $$
 The implementation includes a primality test to determine whether a number
 is prime.
 
+### Modular Arithmetic
+
+Modular arithmetic is a system of arithmetic based on the remainder
+after division.
+
+For example:
+
+$$
+17 \mod 5 = 2
+$$
+
+This means that when 17 is divided by 5, the remainder is 2.
+
+RSA relies heavily on modular arithmetic. During encryption, a message
+is transformed using modular exponentiation:
+
+$$
+c = m^e \mod n
+$$
+
+where:
+
+- `m` is the numerical representation of the message.
+- `e` is the public exponent.
+- `n` is the RSA modulus.
+- `c` is the resulting ciphertext.
+
+This project implements modular exponentiation to demostrate how
+these calculations are performed during RSA encryption.
+
+
 
 
 ## Project Status
