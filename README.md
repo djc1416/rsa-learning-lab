@@ -204,7 +204,7 @@ $$
 For the RSA example used in this project:
 
 $$
-n= 61 \tines 53 = 3233
+n= 61 \times 53 = 3233
 $$
 
 Therefore:
