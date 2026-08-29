@@ -146,6 +146,43 @@ $$
 This allows the modular inverse of `e` modulo $\phi(n)$ to exist.
 
 
+### Modular inverse
+
+The modular inverse of an integer `a` modulo `m` is an integer `d`
+such that:
+
+$$
+a \times d \equiv 1 \pmod{m}
+$$
+
+A modular inverse exists only when `a` and `m` are relatively prime:
+
+$$
+\gcd(a,m)=1
+$$
+
+For example, im our RSA implementation:
+
+$$
+17^{-1} \mod 3120 =2753
+$$
+
+This means:
+
+$$
+17 \times 2753 \equiv 1 \pmod{3120}
+$$
+
+THe modular inverse is essential for RSA because the private exponent
+`d` is calculated as the modular inverse of the public exponent `e`:
+
+$$
+d = e^{-1} \mod \phi(n)
+$$
+
+In this project, the modular inverse is implement from scratch and
+tested with both valid and invalid inputs.
+
 ## Project Status
 
 In development
