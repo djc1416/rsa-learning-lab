@@ -161,10 +161,10 @@ $$
 \gcd(a,m)=1
 $$
 
-For example, im our RSA implementation:
+For example, in our RSA implementation:
 
 $$
-17^{-1} \mod 3120 =2753
+17^{-1} \mod 3120 = 2753
 $$
 
 This means:
@@ -173,7 +173,7 @@ $$
 17 \times 2753 \equiv 1 \pmod{3120}
 $$
 
-THe modular inverse is essential for RSA because the private exponent
+The modular inverse is essential for RSA because the private exponent
 `d` is calculated as the modular inverse of the public exponent `e`:
 
 $$
@@ -182,6 +182,46 @@ $$
 
 In this project, the modular inverse is implement from scratch and
 tested with both valid and invalid inputs.
+
+
+### Euler's Totient Function
+
+Euler's totient function, denoted by $\phi(n)$, counts the positive
+integers up to `n` that are relatively prime to `n`.
+
+When `p` and `q` are distinct prime numbers, the RSA modulus is:
+
+$$
+n = p \times q
+$$
+
+and euler's totient function can be calculated as:
+
+$$
+\phi(n) = (p-1)(q-1)
+$$
+
+For the RSA example used in this project:
+
+$$
+n= 61 \tines 53 = 3233
+$$
+
+Therefore:
+
+$$
+\phi(3233) = (61-1)(53-1) = 3120
+$$
+
+The value of $\phi(n)$ is used when calculating the private exponent
+`d`:
+
+$$
+d = e^{-1} \mod \phi(n)
+$$
+
+This make Euler's totient function an essential part of the RSA
+key generation process.
 
 ## Project Status
 
