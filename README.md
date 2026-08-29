@@ -117,6 +117,35 @@ Congruences are an important part of modular arithmetic and are used
 to describe the mathematical relationships involved in RSA.
 
 
+### GCD and Euclidean Algorithm
+
+The greatest common divisor of two integers is the largest
+positive integer that divides both numbers.
+
+For example:
+
+$$
+\gcd(48,12) = 12
+$$
+
+Since the remainder is 0, the GCD is 12.
+
+The euclidean algorithm is important in RSA because the public
+exponent `e` must be relatively prime to Euler's totient function:
+
+$$
+\gcd(e,\phi(n)) = 1
+$$
+
+For the RSA example used in this project:
+
+$$
+\gcd(17,3120) = 1
+$$
+
+This allows the modular inverse of `e` modulo $\phi(n)$ to exist.
+
+
 ## Project Status
 
 In development
