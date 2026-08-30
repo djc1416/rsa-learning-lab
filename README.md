@@ -223,6 +223,86 @@ $$
 This make Euler's totient function an essential part of the RSA
 key generation process.
 
+
+### Conection to RSA
+
+The mathematical concepts described above are combined during RSA key
+generation.
+
+The process can be summarized as follows:
+
+1. Choose two prime numbers `p` and `q`.
+
+2. Calculate the modulus:
+
+$$
+n = p \times q
+$$
+
+3. Calculate Euler's Totient function:
+
+$$
+\phi(n) = (p-1)(q-1)
+$$
+
+4. Choose a public exponent `e` such that:
+
+$$
+\gcd(e, \phi(n)) = 1
+$$
+
+5. Calculate the modular inverse of `e`:
+
+$$
+d = e^{-1} \mod \phi(n)
+$$
+
+6. Generate the keys:
+
+$$
+\text{Public Key} = (n,e)
+$$
+
+$$
+\text{Private Key}= (n,d)
+$$
+
+For the example used in this project:
+
+$$
+p=61, \quad q=53
+$$
+
+$$
+n=3233
+$$
+
+$$
+\phi(n)=3120
+$$
+
+$$
+e=17
+$$
+
+$$
+d=2753
+$$
+
+Therefore:
+
+$$
+\text{Public Key}=(3233,17)
+$$
+
+$$
+\text{Private Key}=(3233,2753)
+$$
+
+These mathematical foundations are implemented in the project to
+demonstrate how RSA works step by step.
+
+
 ## Project Status
 
 In development
