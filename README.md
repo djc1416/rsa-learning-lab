@@ -305,7 +305,18 @@ demonstrate how RSA works step by step.
 
 ## Project Status
 
-In development
+The core RSA implementation is functional and includes:
+
+- RSA key generation
+- Message encryption and decryption
+- Encryption and decryption steps
+- Prime numbers testing
+- Modular exponentiation
+- GCD using the Euclidean algorithm
+- Modular inverse
+- Euler's totient function
+- Interactive mathematical explanations
+- Automated tests with pytest
 
 ## Roadmap
 
