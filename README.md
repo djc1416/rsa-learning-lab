@@ -320,4 +320,23 @@ The core RSA implementation is functional and includes:
 
 ## Roadmap
 
-The project will be developed step by step, starting with the mathematical foundations and gradully building a complete educational RSA implementation.
+### Completed
+
+- [x] RSA key generation
+- [x] Message encryption and decryption
+- [x] Encryption and decryption steps
+- [x] Prime number testing
+- [x] Modular arithmetic
+- [x] GCD and Euclidean Algorithm
+- [x] Modular inverse
+- [x] Euler's totient function
+- [x] Interactive mathematical explanations
+- [x] Automated test with pytest
+- [x] Mathematical foundations documentation
+
+### Planned
+
+- [ ] Improve the user interface and learning experience
+- [ ] Add more detailed explanations for RSA encryption and decryption
+- [ ] Expand automated test coverage
+- [ ] Add aditional educational examples
