@@ -11,6 +11,9 @@ def generate_keys(p, q, e):
     n = p * q
     phi = euler_totient(n)
 
+    if e <= 1 or e >= phi:
+        raise ValueError("e must satisfy 1 < e < φ(n)")
+
     if gcd(e, phi) != 1:
         raise ValueError("e must be coprime to φ(n)")
 

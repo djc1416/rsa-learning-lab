@@ -29,7 +29,7 @@ def test_rejects_equal_primes():
 
 def test_rejects_invalid_e():
     with pytest.raises(ValueError):
-        generate_keys(5, 11, 5)    
+        generate_keys(61, 53, 1)    
 
 def test_generate_large_keys():
     public_key, private_key = generate_keys(61, 53, 17)
