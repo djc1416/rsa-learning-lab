@@ -78,6 +78,11 @@ if st.session_state.public_key is not None:
 
     st.header("Encryption")
 
+    st.write(
+    "RSA encryption converts each character into a number and" 
+    " then applies modular exponentiation using the public key."
+    )
+
     message = st.text_input("Message", value="HELLO")
 
     if st.button("Encrypt"):
@@ -93,6 +98,15 @@ if st.session_state.public_key is not None:
             st.write("Ciphertext:", ciphertext)
 
             st.subheader("Encryption Steps")
+
+            st.write(
+                "Each character is converted into a numerical value "
+                "before applying the RSA encryption formula:"
+            )
+
+            st.latex(
+                r"c = m^e \mod n"
+            )
 
             steps = encryption_steps(
                 message,
