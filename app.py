@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.image("assets/logorsa.png", width=250)
+
 from modules.euclidean_algorithm import gcd
 from modules.number_theory import is_prime, euler_totient
 from modules.modular_arithmetic import modular_power, modular_power_manual, modular_inverse 
