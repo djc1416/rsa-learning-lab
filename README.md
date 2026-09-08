@@ -1,4 +1,4 @@
-<p align="center>
+<p align="center">
     <img src="assets/logorsa.png" width="220">
 </p>    
 
