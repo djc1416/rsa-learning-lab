@@ -1,3 +1,7 @@
+<p align="center>
+    <img src="assets/logorsa.png" width="220">
+</p>    
+
 # RSA Learing lab
 
 RSA Learning lab is an interactive educational project that explains how public-key cryptography works through mathematics, visualization, and Python implementations.
