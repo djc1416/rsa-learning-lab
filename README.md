@@ -307,6 +307,25 @@ These mathematical foundations are implemented in the project to
 demonstrate how RSA works step by step.
 
 
+## Screenshots
+
+### Key Generation
+
+![Key Generation](assets/key-generation.png)
+
+### Encryption
+
+![Encryption](assets/encryption.png)
+
+### Mathematical Foundations - Part 1
+
+![Mathematical Foundations](assets/mathematical-foundations1.png)
+
+### Mathematical Foundations - Part 2
+
+![Mathematical Foundations](assets/mathematical-foundations2.png)
+
+
 ## Project Status
 
 The core RSA implementation is functional and includes:
