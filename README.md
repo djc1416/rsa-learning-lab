@@ -6,6 +6,18 @@
 
 RSA Learning lab is an interactive educational project that explains how public-key cryptography works through mathematics, visualization, and Python implementations.
 
+## Security Disclaimer
+
+**Educational use only:** RSA Learning Lab is designed to demonstrate the
+mathematical concepts behind RSA. Do not use this application to procet real
+data or sensitive information. This implementation is not suitable for
+production use and does not implement the padding schemes and operational
+safeguards required by real-world cryptograohic systems.
+
+The examples use small, readable numbers so the underlying calculations are
+easy to inspect. Such keys are insecure and must never be used to protect
+actual communications or data.
+
 ## Goal
 
 The goal of this project is to understand the mathematical foundations behind RSA and transform those concepts into working Python implementations.

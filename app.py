@@ -18,6 +18,12 @@ st.title("RSA Learning Lab")
 st.write(
     "An educational implementation of RSA cryptography "
     "built from mathematical foundations."
+)
+
+st.warning(
+    "Educational use only. Do not use this application to protect real"
+    "data or sensitive information. This implementation is designed to"
+    "demostrate RSA concepts and is not suitable for production use."
 )    
 
 st.header("Key Generation")
