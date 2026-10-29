@@ -1,18 +1,6 @@
+
 #include <iostream>
-
-long long modularExponentiation(long long base, long long exponent, long long modulus) {
-    long long result = 1;
-    base = base % modulus;
-
-    while (exponent > 0) {
-        if (exponent % 2 == 1) {
-            result = (result * base) % modulus;
-        }
-        exponent = exponent / 2;
-        base = (base * base) % modulus;
-    }
-    return result;
-}
+#include "modular_exponentiation.hpp"
 
 int main() {
     long long base = 7;
@@ -24,5 +12,5 @@ int main() {
               << modularExponentiation(base, exponent, modulus)
               << '\n';
 
-    return 0;          
+    return 0;
 }

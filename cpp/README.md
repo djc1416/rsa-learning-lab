@@ -86,3 +86,23 @@ This implementation demonstrates the underlying mathematical operation. It is an
 - Explore how modular exponentiation is used in RSA encryption and decryption.
 
 The goal is to build a clear understanding of the mathematical foundations before extending the implementation further.
+
+## 5. Automated test
+
+The test suite is implemented in `test_modular_exponentiation.cpp` using standard C++ facilities, without external testing libraries.
+
+It checks:
+
+- The original RSA modular exponentiation example.
+- Even and zero exponents.
+- Negative bases and moudulus one.
+- Invalid moduli and negative exponents. 
+
+Compile and run the tests from the repository root:
+
+```bash
+g++ cpp/test_modular_exponentiation.cpp -o cpp/test_modular_exponentiation.exe
+./cpp/test_modular_exponentiation.exe
+```
+
+The program exits with status code `0` if all tests pass and `1` if any test fails.
