@@ -87,7 +87,7 @@ This implementation demonstrates the underlying mathematical operation. It is an
 
 The goal is to build a clear understanding of the mathematical foundations before extending the implementation further.
 
-## 5. Automated test
+## 5. Automated tests
 
 The test suite is implemented in `test_modular_exponentiation.cpp` using standard C++ facilities, without external testing libraries.
 
@@ -95,7 +95,7 @@ It checks:
 
 - The original RSA modular exponentiation example.
 - Even and zero exponents.
-- Negative bases and moudulus one.
+- Negative bases and modulus one.
 - Invalid moduli and negative exponents. 
 
 Compile and run the tests from the repository root:
