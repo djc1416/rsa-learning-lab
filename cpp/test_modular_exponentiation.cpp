@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "modular_exponentiation.hpp"
+#include <limits>
 
 int passed = 0;
 int failed = 0;
@@ -54,8 +55,23 @@ int main() {
         modularExponentiation(7, -1, 33);
     });
 
-    std::cout << "\nPassed: " << passed
-              << " | Failed: " << failed << '\n';
+    const long long maxValue =
+        std::numeric_limits<long long>::max();
 
+    check(
+        "Large number multiplication",
+        modularExponentiation(maxValue -1, maxValue -1, maxValue),
+        1
+    );
+
+    check(
+        "Large number exponentiation",
+        modularExponentiation(maxValue -1, 2, maxValue),
+        1
+    );
+
+    std::cout << "\nPassed: " << passed 
+              << " | Failed: " << failed << '\n';
+    
     return failed == 0 ? 0 : 1;
 }
