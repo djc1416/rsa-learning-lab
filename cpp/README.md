@@ -107,11 +107,17 @@ g++ cpp/test_modular_exponentiation.cpp -o cpp/test_modular_exponentiation.exe
 
 The program exits with status code `0` if all tests pass and `1` if any test fails.
 
-## 6. Overflow-safe modulare multiplication
 
-The implementation now includes modular multiplication using the binary double and add method.
-Instead of calcualting the full product of two integers, the algorithm repeatedly doubles and adds values while reducing them modulo the given modulus.
+## 6. Overflow-safe modular multiplication
+
+The implementation now includes modular multiplication using the binary double-and-add method.
+
+Instead of calculating the full product of two integers, the algorithm repeatedly doubles and adds values while reducing them modulo the given modulus.
+
 This avoids intermediate multiplication overflow for positive moduli representable by `long long`.
+
 The modular exponentiation algorithm uses this function for its intermediate calculations.
+
 The multiplication algorithm has O(log b) time complexity, while modular exponentiation has O(log e * log n) time complexity.
+
 This implementation remains educational and is not intended for production cryptographic use.
