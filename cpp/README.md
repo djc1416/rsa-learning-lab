@@ -121,3 +121,39 @@ The modular exponentiation algorithm uses this function for its intermediate cal
 The multiplication algorithm has O(log b) time complexity, while modular exponentiation has O(log e * log n) time complexity.
 
 This implementation remains educational and is not intended for production cryptographic use.
+
+
+## 7. RSA Key Generation in C++
+
+The `rsa/` directory introduces an educational RSA key generation implementation.
+
+It includes:
+
+- Prime number validation.
+- Greatest Common Divisor (Euclidean Algorithm).
+- Modular multiplicative inverse (Extended Euclidean Algorithm).
+- RSA modulus calculation.
+- Euler's totient function.
+- Public and private exponent generation.
+
+### Example
+
+Using p = 61, q = 53 and e = 17:
+
+- n = 3233
+- phi(n) = 3120
+- Public exponent: e = 17
+- Private exponent: d = 2753
+
+The implementation also demonstrates encryption and decryption of a numerical message using modular exponentiation.
+
+### Run the tests
+
+From the repository root:
+
+```bash
+g++ cpp/rsa/test_rsa_keys.cpp -o cpp/rsa/test_rsa_keys.exe
+./cpp/rsa/test_rsa_keys.exe
+```
+
+**Security notice:** This is a small-number educational implementation. It is not suitable for protecting real data or production cryptographic applications.
