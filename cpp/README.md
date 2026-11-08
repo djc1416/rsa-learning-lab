@@ -160,7 +160,7 @@ g++ cpp/rsa/test_rsa_keys.cpp -o cpp/rsa/test_rsa_keys.exe
 
 ## 8. RSA Factorization and Performance Analysis
 
-The `rsa/` directory also includes an educational factorization algotihm implemented in `factorization.hpp`.
+The `rsa/` directory also includes an educational factorization algorithm implemented in `factorization.hpp`.
 
 ### Factorization algorithm
 
@@ -176,7 +176,7 @@ i \leq \frac{n}{i}
 
 This condition is equivalent to checking divisors up to the square root of the input number, without calculating \(i^2\) directly.
 
-If a divisor is found, the algorithm returns the two factors. Oteriwse, the number is classified as prime.
+If a divisor is found, the algorithm returns the two factors.Otherwise, the number is classified as prime.
 
 **Time complexity:** The worst-case time complexity is:
 
@@ -201,7 +201,7 @@ The program also records the number of divisor candidates tested when factorizin
 
 ### Experimental results
 
-The following measuremenst were obtained using GCC with the `-O2` optimization flag:
+The following measurements were obtained using GCC with the `-O2` optimization flag:
 
 | Input number | Classification | Attempts for original input | Average benchmark time |
 |---:|---|---:|---:|
