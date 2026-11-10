@@ -18,6 +18,21 @@ int main() {
         ++failed;
     }
 
+    std::vector<long long> testedDivisors;
+    FactorizationResult trackingResult = factorize(3233, &testedDivisors);
+
+    if (trackingResult.found &&
+        testedDivisors.size() == 52 &&
+        testedDivisors.front() == 2 &&
+        testedDivisors.back() == 53) {
+
+        std::cout << "[PASS] Divisor tracking\n";
+        ++passed;
+    } else {
+        std::cout << "[FAIL] Divisor tracking\n";
+        ++failed;
+    }
+
     FactorizationResult primeResult = factorize(61);
 
     if (!primeResult.found) {
