@@ -1,6 +1,16 @@
-.venv/
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables
 .env
+
 .vscode/
+
+# Windows compiled binaries
 *.exe
+
+# Linux compiled binaries
+*_linux
+

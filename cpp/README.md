@@ -232,3 +232,84 @@ This implementation is intended for mathematical and educational exploration.
 Trial division becomes computationally expensive for sufficiently large integers. Although it demonstrates the mathematical basis of integer factorization, it does not represent the advanced algorithms used in practical cryptanalysis.
 
 The implementation is not intended for production cryptographic applications or for protecting real data.
+
+
+## 9. Factorization Trace Demonstration
+
+The project includes an interactive factorization demonstration implemented in `rsa/factorization_trace_demo.cpp`.
+
+This program provides a step-by-step view of the trial division algorithm, showing the candidate divisors examined during the factorization process.
+
+### How it works
+
+The demonstration reuses the factorization algorithm implemented in `factorization.hpp`.
+
+The algorithm records each tested divisor using an optional `std::vector<long long>` parameter. This allows the program to display the internal search process without duplicating the factorization logic.
+
+For each execution, the program:
+
+- Receives an integer from the user.
+- Executes the trial division algorithm.
+- Records each candidate divisor tested.
+- Displays the attempts in sequential order.
+- Reports the resulting factors or classifies the input as prime.
+- Displays the total number of attempts.
+
+### Example
+
+For the input:
+
+```text
+3233
+```
+
+The algorithm examines candidate divisors starting from 2 and continues until it finds 53.
+
+The final result is:
+
+\[
+3233 = 53 \times 61
+\]
+
+The demonstration reports 52 attempts.
+
+### Example output
+
+```text
+=== RSA Learning Lab ===
+Factorization Trace Demo
+
+Enter a number to factorize: 3233
+
+=== Factorization Process ===
+Attempt 1: Testing divisor 2
+Attempt 2: Testing divisor 3
+...
+Attempt 52: Testing divisor 53
+
+=== Factorization Result ===
+3233 = 53 x 61
+Total attempts: 52
+```
+
+### Compilation and execution
+
+From the root directory of the repository, compile the program using GCC:
+
+```bash
+g++ -std=c++17 -Wall -Wextra -pedantic cpp/rsa/factorization_trace_demo.cpp -o cpp/rsa/factorization_trace_demo_linux
+```
+
+Run the demonstration:
+
+```bash
+./cpp/rsa/factorization_trace_demo_linux
+```
+
+### Educational purpose
+
+This demonstration makes the trial division process easier to understand by exposing the candidate divisors examined by the algorithm.
+
+It also illustrates why prime numbers require checking all candidate divisors up to their square root, while composite numbers can be factorized as soon as a divisor is found.
+
+This implementation is intended exclusively for educational purposes and is not suitable for production cryptographic applications.
