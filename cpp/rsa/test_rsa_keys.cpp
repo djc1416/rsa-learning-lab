@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <stdexcept>
 
@@ -44,11 +43,23 @@ int main() {
 
     // Greatest common divisor
     check("GCD of 17 and 3120", gcd(17, 3120), 1);
-    // Modular inverse 
+
+    // Modular inverse tests
     check("Modular inverse of 17 mod 3120",
           modularInverse(17, 3120), 2753);
 
-   
+    check("Modular inverse of 7 mod 40",
+          modularInverse(7, 40), 23);
+
+    checkThrows("Modular inverse does not exist", [] {
+        modularInverse(12, 40);
+    });
+
+    checkThrows("Invalid modular inverse modulus", [] {
+        modularInverse(7, 1);
+    });
+
+    // RSA key generation
     RSAKeys keys = generateRSAKeys(61, 53, 17);
 
     check("RSA modulus n", keys.n, 3233);
@@ -56,7 +67,7 @@ int main() {
     check("Public exponent e", keys.e, 17);
     check("Private exponent d", keys.d, 2753);
 
-    
+    // RSA encryption and decryption
     long long message = 65;
 
     long long encrypted = modularExponentiation(
@@ -70,7 +81,7 @@ int main() {
     check("Encrypted message", encrypted, 2790);
     check("Decrypted message", decrypted, message);
 
-    
+    // Invalid RSA key generation tests
     checkThrows("Non-prime p", [] {
         generateRSAKeys(60, 53, 17);
     });
@@ -83,7 +94,6 @@ int main() {
         generateRSAKeys(61, 53, 12);
     });
 
-   
     std::cout << "\nPassed: " << passed
               << " | Failed: " << failed << '\n';
 

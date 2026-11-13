@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdexcept>
+#include "extended_euclidean.hpp"
 
 struct RSAKeys {
     long long p;
@@ -40,40 +41,26 @@ inline long long gcd(long long a, long long b) {
 
 inline long long modularInverse(long long a, long long modulus) {
     if (modulus <= 1) {
-        throw std::invalid_argument("Modulus must be greater than 1.");
+        throw std::invalid_argument(
+            "Modulus must be greater than 1."
+        );
     }
 
-    long long originalModulus = modulus;
-    long long oldR = a;
-    long long r = modulus;
-    long long oldS = 1;
-    long long s = 0;
+    ExtendedGCDResult result = extendedGCD(a, modulus);
 
-    while (r != 0) {
-        long long quotient = oldR / r;
-
-        long long tempR = oldR - quotient * r;
-        oldR = r;
-        r = tempR;
-
-        long long tempS = oldS - quotient * s;
-        oldS = s;
-        s = tempS;
-    }
-
-    if (oldR != 1) {
+    if (result.gcd != 1) {
         throw std::invalid_argument(
             "Modular inverse does not exist."
         );
     }
 
-    long long result = oldS % originalModulus;
+    long long inverse = result.x % modulus;
 
-    if (result < 0) {
-        result += originalModulus;
+    if (inverse < 0) {
+        inverse += modulus;
     }
 
-    return result;
+    return inverse;
 }
 
 
