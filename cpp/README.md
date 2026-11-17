@@ -313,3 +313,114 @@ This demonstration makes the trial division process easier to understand by expo
 It also illustrates why prime numbers require checking all candidate divisors up to their square root, while composite numbers can be factorized as soon as a divisor is found.
 
 This implementation is intended exclusively for educational purposes and is not suitable for production cryptographic applications.
+
+
+## 10. Modular Inverse Demonstration
+
+The modular inverse demostration illustrates how the Extended Euclidean Algorithm can be used to calculate the modular inverse of an integer.
+
+### Implementation
+
+The demonstration is implemented in:
+
+- `rsa/modular_inverse_demo.cpp`
+- `rsa/test_modular_inverse_demo.cpp`
+
+The program receives two integers:
+
+- `a`: the integer whose modular inverse we want to calculate.
+- `modulus`: the modulus.
+
+It then uses the `extendedGCD()` function to calculate:
+
+- The greatest common divisor (GCD).
+- Bézout coefficients (`x` and `y`).
+- Bézout's identity.
+
+The Bézout identity is:
+
+\[
+a \cdot x + m \cdot y = \gcd(a,m)
+\]
+
+### Modular Inverse Condition
+
+A modular inverse exist if and only if:
+
+\[
+\gcd(a,m)=1
+\]
+
+When this condition is satisfied, the modular inverse is calculated using the coeficient `x`, normalized to the range from `0` to `m-1`.
+
+The result is verified with:
+
+\[
+(a \cdot a^{-1}) \bmod m = 1
+\]
+
+If the GCD is different from 1, the program reports that the modular inverse does not exist.
+
+### Example 1: Modular Inverse Exists
+
+Input:
+
+```text
+Enter integer (a): 17
+Enter modulus (m): 40
+```
+
+Output:
+
+```text
+GCD: 1
+Bézout coefficients:
+x = -7
+y = 3
+
+Bézout identity:
+17 * (-7) + 40 * (3) = 1
+
+Modular inverse: 33
+Verification: (17 * 33) % 40 = 1
+```
+
+### Example 2: Modular Inverse Does Not Exist
+
+Input:
+
+```text
+Enter integer (a): 12
+Enter modulus (m): 40
+```
+
+Output:
+
+```text
+GCD: 4
+
+No modular inverse exists because GCD(a, m) is not 1.
+```
+
+### Compilation and Execution
+
+From the `cpp/rsa` directory:
+
+```bash
+g++ -std=c++17 -Wall -Wextra -pedantic modular_inverse_demo.cpp -o modular_inverse_demo_linux
+./modular_inverse_demo_linux
+```
+
+### Tests
+
+The test file `test_modular_inverse_demo.cpp` checks:
+
+1. The modular inverse of 17 modulo 40.
+2. The modular inverse of 7 modulo 40.
+3. The absence of an inverse when the GCD is not 1.
+4. Bézout's identity.
+5. Modular inverse verification.
+
+All five tests passed.
+
+**Educational note:** This implementation is intended for learning and experimentation with small integer values. It is not designed for production cryptographic use.
