@@ -7,38 +7,38 @@ This directory contains C++ implementations of mathematical algorithms related t
 
 The first implementation, `modular_exponentiation.cpp`, calculates modular exponentiation using the **binary exponentiation algorithm**.
 
-Given three integers \(a\), \(b\), and \(n\), the goal is to calculate:
+Given three integers $a$, $b$, and $n$, the goal is to calculate:
 
-\[
+$$
 a^b \bmod n
-\]
+$$
 
-Instead of computing the entire power \(a^b\), which can become extremely large, the algorithm repeatedly squares the base and reduces intermediate results modulo \(n\).
+Instead of computing the entire power $a^b$, which can become extremely large, the algorithm repeatedly squares the base and reduces intermediate results modulo $n$.
 
 ### Mathematical Foundation
 
 The algorithm relies on two properties:
 
-- If the exponent is even, \(a^b = (a^2)^{b/2}\).
-- If the exponent is odd, one factor of \(a\) can be extracted before reducing the remaining exponent.
+- If the exponent is even, $a^b = (a^2)^{b/2}$.
+- If the exponent is odd, one factor of $a$ can be extracted before reducing the remaining exponent.
 
-At each iteration, the algorithm checks whether the exponent is odd, updates the result when necessary, squares the base modulo \(n\), and divides the exponent by two.
+At each iteration, the algorithm checks whether the exponent is odd, updates the result when necessary, squares the base modulo $n$, and divides the exponent by two.
 
-This reduces the number of iterations from \(O(b)\) to \(O(\log b)\), making it much more efficient than multiplying the base repeatedly.
+This reduces the number of iterations from $O(b)$ to $O(\log b)$, making it much more efficient than multiplying the base repeatedly.
 
 ### Example
 
 For the inputs:
 
-\[
+$$
 a = 7,\quad b = 13,\quad n = 33
-\]
+$$
 
 The calculation is:
 
-\[
+$$
 7^{13} \bmod 33 = 13
-\]
+$$
 
 The program should therefore display:
 
@@ -46,6 +46,7 @@ The program should therefore display:
 RSA Learning Lab - C++
 Result: 13
 ```
+
 
 
 
