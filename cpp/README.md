@@ -2,6 +2,7 @@
 
 This directory contains C++ implementations of mathematical algorithms related to RSA cryptography and number theory.
 
+
 ## 1. Modular Exponentiation
 
 The first implementation, `modular_exponentiation.cpp`, calculates modular exponentiation using the **binary exponentiation algorithm**.
@@ -14,7 +15,7 @@ a^b \bmod n
 
 Instead of computing the entire power \(a^b\), which can become extremely large, the algorithm repeatedly squares the base and reduces intermediate results modulo \(n\).
 
-### Mathematical foundation
+### Mathematical Foundation
 
 The algorithm relies on two properties:
 
@@ -23,17 +24,17 @@ The algorithm relies on two properties:
 
 At each iteration, the algorithm checks whether the exponent is odd, updates the result when necessary, squares the base modulo \(n\), and divides the exponent by two.
 
-This reduces the number of iterations from \(O(b)\) to **\(O(\log b)\)**, making it much more efficient than multiplying the base repeatedly.
+This reduces the number of iterations from \(O(b)\) to \(O(\log b)\), making it much more efficient than multiplying the base repeatedly.
 
 ### Example
 
 For the inputs:
 
 \[
-a=7,\quad b=13,\quad n=33
+a = 7,\quad b = 13,\quad n = 33
 \]
 
-the calculation is:
+The calculation is:
 
 \[
 7^{13} \bmod 33 = 13
@@ -45,6 +46,8 @@ The program should therefore display:
 RSA Learning Lab - C++
 Result: 13
 ```
+
+
 
 ## 2. How to compile and run
 
