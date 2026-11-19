@@ -321,7 +321,7 @@ This implementation is intended exclusively for educational purposes and is not 
 
 ## 10. Modular Inverse Demonstration
 
-The modular inverse demostration illustrates how the Extended Euclidean Algorithm can be used to calculate the modular inverse of an integer.
+The modular inverse demonstration illustrates how the Extended Euclidean Algorithm can be used to calculate the modular inverse of an integer.
 
 ### Implementation
 
@@ -349,13 +349,13 @@ a \cdot x + m \cdot y = \gcd(a,m)
 
 ### Modular Inverse Condition
 
-A modular inverse exist if and only if:
+A modular inverse exists if and only if:
 
 \[
 \gcd(a,m)=1
 \]
 
-When this condition is satisfied, the modular inverse is calculated using the coeficient `x`, normalized to the range from `0` to `m-1`.
+When this condition is satisfied, the modular inverse is calculated using the coefficient `x`, normalized to the range from `0` to `m-1`.
 
 The result is verified with:
 
