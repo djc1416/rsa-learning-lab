@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include "extended_euclidean.hpp"
+#include "euler_totient.hpp"
 
 struct RSAKeys {
     long long p;
@@ -11,7 +12,6 @@ struct RSAKeys {
     long long e;
     long long d;
 };
-
 
 inline bool isPrime(long long number) {
     if (number < 2) {
@@ -27,7 +27,6 @@ inline bool isPrime(long long number) {
     return true;
 }
 
-
 inline long long gcd(long long a, long long b) {
     while (b != 0) {
         long long remainder = a % b;
@@ -37,7 +36,6 @@ inline long long gcd(long long a, long long b) {
 
     return a;
 }
-
 
 inline long long modularInverse(long long a, long long modulus) {
     if (modulus <= 1) {
@@ -63,7 +61,6 @@ inline long long modularInverse(long long a, long long modulus) {
     return inverse;
 }
 
-
 inline RSAKeys generateRSAKeys(
     long long p,
     long long q,
@@ -82,7 +79,7 @@ inline RSAKeys generateRSAKeys(
     }
 
     long long n = p * q;
-    long long phi = (p - 1) * (q - 1);
+    long long phi = eulerTotient(n);
 
     if (e <= 1 || e >= phi) {
         throw std::invalid_argument(
