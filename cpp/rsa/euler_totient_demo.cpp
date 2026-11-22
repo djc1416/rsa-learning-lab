@@ -2,26 +2,7 @@
 #include <vector>
 #include <stdexcept>
 #include "euler_totient.hpp"
-
-std::vector<long long> findPrimeFactors(long long n) {
-    std::vector<long long> factors;
-
-    for (long long p = 2; p <= n / p; ++p) {
-        if (n % p == 0) {
-            factors.push_back(p);
-
-            while (n % p == 0) {
-                n /= p;
-            }
-        }
-    }
-
-    if (n > 1) {
-        factors.push_back(n);
-    }
-
-    return factors;
-}
+#include "prime_factorization.hpp"
 
 int main() {
     long long n;
