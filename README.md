@@ -312,6 +312,91 @@ These mathematical foundations are implemented in the project to
 demonstrate how RSA works step by step.
 
 
+## RSA Text Encryption Demonstration
+
+The C++ implementation includes a complete RSA text encryption and decryption demonstration.
+
+The program uses the message `HELLO` to illustrate how text is converted into numerical blocks before applying RSA encryption.
+
+### Text-to-Number Conversion
+
+The original message:
+
+```text
+HELLO
+```
+
+is converted into its ASCII decimal representation:
+
+```text
+H = 72
+E = 69
+L = 76
+L = 76
+O = 79
+```
+
+Therefore, the numerical representation is:
+
+```text
+72 69 76 76 79
+```
+
+### RSA Encryption
+
+The demonstration generates RSA keys using:
+
+```text
+p = 61
+q = 53
+e = 17
+n = 3233
+d = 2753
+```
+
+Each numerical block is encrypted using:
+
+$$
+c = m^e \mod n
+$$
+
+The resulting encrypted blocks are:
+
+```text
+3000 28 2726 2726 1307
+```
+
+### RSA Decryption
+
+Each encrypted block is decrypted using:
+
+$$
+m = c^d \mod n
+$$
+
+The decrypted numerical representation is:
+
+```text
+72 69 76 76 79
+```
+
+Finally, the numbers are converted back into text:
+
+```text
+HELLO
+```
+
+The program verifies that the recovered message matches the original message.
+
+```text
+[PASS] RSA text encryption and decryption
+```
+
+This demonstration connects text encoding, modular exponentiation, RSA encryption, and RSA decryption into a single educational workflow.
+
+**Note:** This implementation uses textbook RSA without padding and is intended exclusively for educational purposes.
+
+
 ## Screenshots
 
 ### Key Generation
