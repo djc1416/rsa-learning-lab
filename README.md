@@ -15,17 +15,20 @@ RSA Learning Lab is an educational project that explains how public-key cryptogr
 
 The goal of this project is to understand the mathematical foundations behind RSA and transform those concepts into working Python and C++ implementations.
 
-## What You Will learn
+## What You Will Learn
 
-- Prime numbers
-- Modular arithmetic
-- Greatest Common Divisor
-- Euclidean Algorithm
-- Euler's Totient Function
-- Modular Inverses
-- RSA key generation
-- Encryption
-- Decryption
+- Prime numbers and prime factorization.
+- Modular arithmetic and congruences.
+- Greatest Common Divisor (GCD).
+- Euclidean and Extended Euclidean Algorithms.
+- Modular multiplicative inverses.
+- Euler's Totient Function.
+- Modular exponentiation.
+- RSA key generation.
+- RSA encryption and decryption.
+- Text-to-byte conversion and numerical representation.
+- The mathematical relationship between RSA public and private keys.
+- Practical applications of number theory in public-key cryptography.
 
 ## Mathematical Foundations
 
@@ -418,38 +421,54 @@ This demonstration connects text encoding, modular exponentiation, RSA encryptio
 
 ## Project Status
 
-The core RSA implementation is functional and includes:
+RSA Learning Lab is an ongoing educational project focused on understanding the mathematical foundations and practical implementation of RSA cryptography.
 
-- RSA key generation
-- Message encryption and decryption
-- Encryption and decryption steps
-- Prime numbers testing
-- Modular exponentiation
-- GCD using the Euclidean algorithm
-- Modular inverse
-- Euler's totient function
-- Interactive mathematical explanations
-- Automated tests with pytest
+### Completed
+
+- Mathematical explanations of RSA and its underlying number theory.
+- Python implementations of RSA-related concepts.
+- C++ implementations of fundamental mathematical operations used in RSA.
+- Prime factorization and Euler Totient Function.
+- Euclidean and Extended Euclidean Algorithms.
+- Modular arithmetic, modular inverses, and modular exponentiation.
+- RSA key generation.
+- RSA encryption and decryption.
+- Text-to-byte conversion and reconstruction.
+- Complete RSA text encryption and decryption demonstration using `HELLO`.
+- Unit tests for the implemented C++ components.
+
+### In Progress
+
+- Improving project documentation and mathematical explanations.
+- Expanding educational demonstrations.
+- Incorporating feedback to improve the project educational value.
 
 ## Roadmap
 
 ### Completed
 
-- [x] RSA key generation
-- [x] Message encryption and decryption
-- [x] Encryption and decryption steps
-- [x] Prime number testing
-- [x] Modular arithmetic
-- [x] GCD and Euclidean Algorithm
-- [x] Modular inverse
-- [x] Euler's totient function
-- [x] Interactive mathematical explanations
-- [x] Automated test with pytest
-- [x] Mathematical foundations documentation
+- [x] RSA key generation.
+- [x] Message encryption and decryption.
+- [x] Step-by-step RSA encryption and decryption explanations.
+- [x] Prime number testing.
+- [x] Modular arithmetic and congruences.
+- [x] GCD and Euclidean Algorithm.
+- [x] Extended Euclidean Algorithm.
+- [x] Modular multiplicative inverse.
+- [x] Euler Totient Function.
+- [x] Prime factorization.
+- [x] Modular exponentiation.
+- [x] Interactive mathematical explanations.
+- [x] Automated Python tests with pytest.
+- [x] Unit tests for implemented C++ components.
+- [x] Text-to-byte conversion and reconstruction.
+- [x] RSA text encryption and decryption demonstration using `HELLO`.
+- [x] Mathematical foundations documentation.
 
 ### Planned
 
-- [ ] Improve the user interface and learning experience
-- [ ] Add more detailed explanations for RSA encryption and decryption
-- [ ] Expand automated test coverage
-- [ ] Add aditional educational examples
+- [ ] Implement a brute force demonstration using small RSA keys to illustrate the weaknesses of insecure key sizes.
+- [ ] Improve the user interface and learning experience.
+- [ ] Expand automated test coverage.
+- [ ] Add more educational examples and interactive demonstrations.
+- [ ] Continue improving mathematical explanations and project documentation.
